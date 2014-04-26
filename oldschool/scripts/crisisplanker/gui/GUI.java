@@ -36,11 +36,6 @@ public class GUI extends ClientAccessor {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			selectedEnum = (Log) logTypes.getSelectedItem();
-			Log.nameChosen = selectedEnum;
-			Log.logIdChosen = selectedEnum;
-			Log.plankIdChosen = selectedEnum;
-			Log.feeChosen = selectedEnum;
-			Log.childChosen = selectedEnum;
 			System.out.println(selectedEnum);
 			frame.dispose();
 			Main.done = true;
