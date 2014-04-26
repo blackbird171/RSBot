@@ -28,11 +28,10 @@ import scripts.crisisplanker.tasks.walking.GoToGuy;
 public class Main extends PollingScript<ClientContext> implements PaintListener {
 
 	// int
-	private int logPrice = 0;
+	/*private int logPrice = 0;
 	private int plankPrice = 0;
 	private int profitPerLog = 0;
-	@SuppressWarnings("unused")
-	private int totalProfit = 0;
+	private int totalProfit = 0;*/
 	public int plankCount = 0;
 
 	// String
@@ -97,8 +96,8 @@ public class Main extends PollingScript<ClientContext> implements PaintListener 
 		g.drawLine(352, 133, 515, 133);
 		g.setFont(font1);
 		g.drawString("Time: " + formated(this.getRuntime()), 363, 161);
-		g.drawString("Profit: Soon™", 363, 188);
-		g.drawString("Profit/hr: Soon™", 363,212);
+		g.drawString("Profit: Soonï¿½", 363, 188);
+		g.drawString("Profit/hr: Soonï¿½", 363,212);
 		g.drawString(
 				"Planks: " + NumberFormat.getInstance().format(plankCount),
 				363, 237);
