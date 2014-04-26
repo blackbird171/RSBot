@@ -130,6 +130,5 @@ public class Main extends PollingScript<ClientContext> implements PaintListener 
 	public static int getPerHour(int in, long time) {
 		return (int) ((in) * 3600000D / time);
 	}
-	//getprice
 
 }
