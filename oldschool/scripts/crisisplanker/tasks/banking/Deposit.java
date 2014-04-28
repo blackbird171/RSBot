@@ -6,7 +6,6 @@ import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class Deposit extends Task {
@@ -21,18 +20,18 @@ public class Deposit extends Task {
 	@Override
 	public boolean activate() {
 		return ctx.bank.opened()
-				&& !ctx.inventory.select().id(Log.plankIdChosen.getPlankId())
+				&& !ctx.inventory.select().id(m.log.getPlankId())
 						.isEmpty();
 	}
 
 	@Override
 	public void execute() {
 		m.status = "Depositing...";
-		ctx.bank.deposit(Log.plankIdChosen.getPlankId(), 0);
+		ctx.bank.deposit(m.log.getPlankId(), 0);
 		Condition.wait(new Callable<Boolean>() {
 		     @Override
 		     public Boolean call() {
-		         return ctx.inventory.select().id(Log.plankIdChosen.getPlankId()).isEmpty();
+		         return ctx.inventory.select().id(m.log.getPlankId()).isEmpty();
 		     }
 		}, 3000, 2);
 

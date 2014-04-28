@@ -8,7 +8,6 @@ import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class Withdraw extends Task {
@@ -28,13 +27,13 @@ public class Withdraw extends Task {
 	@Override
 	public void execute() {
 		m.status = "Withdrawing...";
-		if (!ctx.bank.select().id(Log.logIdChosen.getLogId()).isEmpty()) {
-			ctx.bank.withdraw(Log.logIdChosen.getLogId(), 27);
+		if (!ctx.bank.select().id(m.log.getLogId()).isEmpty()) {
+			ctx.bank.withdraw(m.log.getLogId(), 27);
 			Condition.wait(new Callable<Boolean>() {
 				@Override
 				public Boolean call() {
 					return !ctx.inventory.select()
-							.id(Log.logIdChosen.getLogId()).isEmpty();
+							.id(m.log.getLogId()).isEmpty();
 				}
 			}, 3000, 2);
 		} else {

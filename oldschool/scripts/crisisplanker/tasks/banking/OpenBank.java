@@ -7,7 +7,6 @@ import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.Npc;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class OpenBank extends Task {
@@ -22,7 +21,7 @@ public class OpenBank extends Task {
 	public boolean activate() {
 		Npc banker = ctx.npcs.select().id(2532).nearest().poll();
 		return !ctx.bank.opened()
-				&& ctx.inventory.select().id(Log.logIdChosen.getLogId())
+				&& ctx.inventory.select().id(m.log.getLogId())
 						.isEmpty() && banker.valid();
 	}
 

@@ -6,7 +6,6 @@ import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class CloseBank extends Task {
@@ -20,7 +19,7 @@ public class CloseBank extends Task {
 	@Override
 	public boolean activate() {
 		return ctx.bank.opened()
-				&& !ctx.inventory.select().id(Log.logIdChosen.getLogId())
+				&& !ctx.inventory.select().id(m.log.getLogId())
 						.isEmpty();
 	}
 

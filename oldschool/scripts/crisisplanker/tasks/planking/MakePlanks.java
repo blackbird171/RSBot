@@ -7,7 +7,6 @@ import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.Component;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class MakePlanks extends Task {
@@ -28,7 +27,7 @@ public class MakePlanks extends Task {
 	public void execute() {
 		m.status = "Planking...";
 		final Component plankInterface = ctx.widgets.widget(403).component(
-				Log.childChosen.getChild());
+				m.log.getChild());
 		plankInterface.interact("Buy All");
 		m.plankCount += 27;
 		Condition.wait(new Callable<Boolean>() {

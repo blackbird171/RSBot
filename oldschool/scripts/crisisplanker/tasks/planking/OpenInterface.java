@@ -10,7 +10,6 @@ import org.powerbot.script.rt4.Component;
 import org.powerbot.script.rt4.Npc;
 
 import scripts.crisisplanker.Main;
-import scripts.crisisplanker.data.Log;
 import scripts.crisisplanker.tasks.Task;
 
 public class OpenInterface extends Task {
@@ -26,7 +25,7 @@ public class OpenInterface extends Task {
 		Npc sawmillGuy = ctx.npcs.select().id(2406).nearest().poll();
 		Component plankInterface = ctx.widgets.widget(403).component(3);
 		return sawmillGuy.valid()
-				&& !ctx.inventory.select().id(Log.logIdChosen.getLogId())
+				&& !ctx.inventory.select().id(m.log.getLogId())
 						.isEmpty() && !plankInterface.valid();
 	}
 
@@ -34,7 +33,7 @@ public class OpenInterface extends Task {
 	public void execute() {
 		m.status = "Planking...";
 		Npc sawmillGuy = ctx.npcs.select().id(2406).nearest().poll();
-		final Component plankInterface = ctx.widgets.widget(403).component(Log.childChosen.getChild());
+		final Component plankInterface = ctx.widgets.widget(403).component(m.log.getChild());
 		Component outOfCoins = ctx.widgets.widget(242).component(2);
 		
 		if(outOfCoins.valid()) {

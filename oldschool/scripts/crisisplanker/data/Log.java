@@ -41,10 +41,4 @@ public enum Log {
 	public int getChild() {
 		return child;
 	}
-	
-	public static Log nameChosen = Log.NONE;
-	public static Log logIdChosen = Log.NONE;
-	public static Log plankIdChosen = Log.NONE;
-	public static Log feeChosen = Log.NONE;
-	public static Log childChosen = Log.NONE;
 }
